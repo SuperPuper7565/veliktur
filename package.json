@@ -1,13 +1,25 @@
 {
   "name": "veliktur",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Landing page for bike store built with Express and EJS",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "db:init": "node db/initDb.js",
+    "test": "node scripts/smoke-test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }

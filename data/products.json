@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Storm Urban X1",
+    "category": "city",
+    "price": 64900,
+    "rating": 4.8,
+    "speed": "21",
+    "wheel": "27.5\"",
+    "frame": "Алюминий",
+    "image": "/images/bike-city.svg",
+    "isBestSeller": true
+  },
+  {
+    "id": 2,
+    "name": "Ridge Trail Pro",
+    "category": "mountain",
+    "price": 78900,
+    "rating": 4.9,
+    "speed": "24",
+    "wheel": "29\"",
+    "frame": "Карбон",
+    "image": "/images/bike-mountain.svg",
+    "isBestSeller": true
+  },
+  {
+    "id": 3,
+    "name": "Aero Road S",
+    "category": "road",
+    "price": 92500,
+    "rating": 4.7,
+    "speed": "22",
+    "wheel": "28\"",
+    "frame": "Карбон",
+    "image": "/images/bike-road.svg",
+    "isBestSeller": false
+  },
+  {
+    "id": 4,
+    "name": "Sprint Hybrid M",
+    "category": "hybrid",
+    "price": 70200,
+    "rating": 4.6,
+    "speed": "18",
+    "wheel": "28\"",
+    "frame": "Алюминий",
+    "image": "/images/bike-hybrid.svg",
+    "isBestSeller": false
+  },
+  {
+    "id": 5,
+    "name": "Peak Enduro ZX",
+    "category": "mountain",
+    "price": 119900,
+    "rating": 5.0,
+    "speed": "12",
+    "wheel": "29\"",
+    "frame": "Карбон",
+    "image": "/images/bike-mountain.svg",
+    "isBestSeller": true
+  },
+  {
+    "id": 6,
+    "name": "City Glide 3",
+    "category": "city",
+    "price": 55800,
+    "rating": 4.5,
+    "speed": "7",
+    "wheel": "26\"",
+    "frame": "Сталь",
+    "image": "/images/bike-city.svg",
+    "isBestSeller": false
+  }
+]
+

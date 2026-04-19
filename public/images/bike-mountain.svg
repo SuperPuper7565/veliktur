@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Mountain bike">
+  <rect width="800" height="520" fill="#ecfeff"/>
+  <polygon points="80,220 220,120 300,220" fill="#bfdbfe"/>
+  <polygon points="220,220 380,90 520,220" fill="#93c5fd"/>
+  <text x="32" y="62" font-family="Arial" font-size="34" font-weight="700" fill="#0f172a">MOUNTAIN</text>
+  <circle cx="210" cy="370" r="104" fill="none" stroke="#111827" stroke-width="16"/>
+  <circle cx="600" cy="370" r="104" fill="none" stroke="#111827" stroke-width="16"/>
+  <path d="M210 370 L355 220 L480 220 L600 370" fill="none" stroke="#0ea5e9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+

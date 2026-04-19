@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Road bike">
+  <rect width="800" height="520" fill="#fff7ed"/>
+  <text x="32" y="62" font-family="Arial" font-size="34" font-weight="700" fill="#0f172a">ROAD</text>
+  <circle cx="220" cy="372" r="98" fill="none" stroke="#1f2937" stroke-width="12"/>
+  <circle cx="590" cy="372" r="98" fill="none" stroke="#1f2937" stroke-width="12"/>
+  <path d="M220 372 L360 235 L500 235 L590 372" fill="none" stroke="#f97316" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M500 235 L555 182" fill="none" stroke="#1f2937" stroke-width="10" stroke-linecap="round"/>
+</svg>
+

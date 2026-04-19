@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Hybrid bike">
+  <rect width="800" height="520" fill="#f0fdf4"/>
+  <text x="32" y="62" font-family="Arial" font-size="34" font-weight="700" fill="#0f172a">HYBRID</text>
+  <circle cx="220" cy="372" r="101" fill="none" stroke="#1f2937" stroke-width="14"/>
+  <circle cx="590" cy="372" r="101" fill="none" stroke="#1f2937" stroke-width="14"/>
+  <path d="M220 372 L350 238 L490 238 L590 372" fill="none" stroke="#22c55e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+

@@ -1,0 +1,246 @@
+<%- include('partials/header', { title: title }) %>
+
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="badge">Новая коллекция 2026</p>
+      <h1>Велосипеды для города, трассы и горных приключений</h1>
+      <p class="hero-text">
+        Подберем идеальную модель под ваш стиль и рост. Доставка по России, гарантия 2 года и бесплатный сервис в первый сезон.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#catalog">Перейти в каталог</a>
+        <a class="btn btn-ghost" href="#catalog">Выбрать стиль</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>5000+</strong><span>Клиентов</span></div>
+        <div><strong>120+</strong><span>Моделей</span></div>
+        <div><strong>4.9</strong><span>Средний рейтинг</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="/images/gorniy_velosiped_na_doroge.png" alt="Велосипед VelikTur" />
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted" id="catalog">
+  <div class="container">
+    <div class="section-head">
+      <h2>Выбор стиля и каталог велосипедов</h2>
+      <p>Выберите категорию, найдите модель по названию и отсортируйте по цене.</p>
+    </div>
+
+    <% const brands = [...new Set(products.map((item) => item.brand))].sort(); %>
+    <% const wheels = [...new Set(products.map((item) => item.wheel))].sort((a, b) => parseFloat(a) - parseFloat(b)); %>
+    <% const speeds = [...new Set(products.map((item) => item.speed))].sort((a, b) => Number(a) - Number(b)); %>
+    <% const frames = [...new Set(products.map((item) => item.frame))].sort(); %>
+    <% const brakeTypes = [...new Set(products.map((item) => item.brakeType))].sort(); %>
+
+    <div class="category-buttons" id="categoryButtons">
+      <button class="category-btn is-active" type="button" data-category="all">Все</button>
+      <button class="category-btn" type="button" data-category="kids">Детские</button>
+      <button class="category-btn" type="button" data-category="city">Городские</button>
+      <button class="category-btn" type="button" data-category="mountain">Горные</button>
+      <button class="category-btn" type="button" data-category="hybrid">Гибридные</button>
+    </div>
+
+    <div class="search-sort-row">
+      <div>
+        <label for="searchInput" class="sr-only">Поиск по названию</label>
+        <input id="searchInput" type="text" placeholder="Поиск велосипеда по названию" />
+      </div>
+      <div class="price-control">
+        <label for="priceRange">Цена до: <span id="priceValue"></span></label>
+        <input id="priceRange" type="range" min="0" step="1000" />
+      </div>
+    </div>
+
+    <div class="category-advanced" id="categoryAdvanced">
+      <div class="category-advanced-copy">
+        <h3 id="categoryAdvancedTitle">Для каждого райдера</h3>
+        <p id="categoryAdvancedDescription">Выберите категорию выше, чтобы открыть дополнительные фильтры.</p>
+      </div>
+      <div class="category-advanced-controls">
+        <div class="advanced-group" id="genderButtons"></div>
+        <span class="advanced-separator" id="advancedSeparator" aria-hidden="true">|</span>
+        <div class="advanced-group" id="ageButtons"></div>
+      </div>
+    </div>
+
+    <div class="spec-filters-row">
+      <select id="brandFilter">
+        <option value="all">Бренд</option>
+        <% brands.forEach((brand) => { %>
+        <option value="<%= brand %>"><%= brand %></option>
+        <% }) %>
+      </select>
+
+      <select id="wheelFilter">
+        <option value="all">Диаметр колес</option>
+        <% wheels.forEach((wheel) => { %>
+        <option value="<%= wheel %>"><%= wheel %></option>
+        <% }) %>
+      </select>
+
+      <select id="speedsFilter">
+        <option value="all">Кол-во скоростей</option>
+        <% speeds.forEach((speed) => { %>
+        <option value="<%= speed %>"><%= speed %></option>
+        <% }) %>
+      </select>
+
+      <select id="frameFilter">
+        <option value="all">Материал рамы</option>
+        <% frames.forEach((frame) => { %>
+        <option value="<%= frame %>"><%= frame %></option>
+        <% }) %>
+      </select>
+
+      <select id="brakeFilter">
+        <option value="all">Тип тормоза</option>
+        <% brakeTypes.forEach((brakeType) => { %>
+        <option value="<%= brakeType %>"><%= brakeType %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <p class="result-count" id="resultCount">Найдено: <%= products.length %></p>
+
+    <div class="catalog-grid" id="catalogGrid">
+      <% products.forEach((product) => { %>
+      <%- include('partials/product-card', { product: product }) %>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sizes">
+  <div class="container">
+    <div class="section-head">
+      <h2>Таблица размеров</h2>
+      <p>Быстрый ориентир для выбора ростовки рамы.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Рост</th>
+            <th>Размер рамы</th>
+            <th>Маркировка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>150-165 см</td><td>15-16"</td><td>S</td></tr>
+          <tr><td>165-175 см</td><td>17-18"</td><td>M</td></tr>
+          <tr><td>175-185 см</td><td>19-20"</td><td>L</td></tr>
+          <tr><td>185-198 см</td><td>21-22"</td><td>XL</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted" id="bestsellers">
+  <div class="container">
+    <div class="section-head">
+      <h2>Бестселлеры</h2>
+      <p>Модели, которые выбирают чаще всего.</p>
+    </div>
+    <div class="best-grid">
+      <% products.filter((item) => item.isBestSeller).slice(0, 3).forEach((item) => { %>
+      <article class="best-card">
+        <img src="<%= item.image %>" alt="<%= item.name %>" />
+        <h3><%= item.name %></h3>
+        <p><%= item.price.toLocaleString('ru-RU') %> ₽</p>
+      </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <h2>Галерея</h2>
+      <p>Велосипеды в реальной среде: город, природа и трек.</p>
+    </div>
+    <div class="gallery-grid">
+      <img src="/images/gallery-1.svg" alt="Городская поездка" />
+      <img src="/images/gallery-2.svg" alt="Велосипед в горах" />
+      <img src="/images/gallery-3.svg" alt="Скоростной заезд" />
+      <img src="/images/gallery-4.svg" alt="Команда VelikTur" />
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted" id="benefits">
+  <div class="container">
+    <div class="section-head">
+      <h2>Преимущества</h2>
+    </div>
+    <div class="benefits-grid">
+      <article class="benefit"><h3>Гарантия 2 года</h3><p>Официальное обслуживание и быстрые запчасти.</p></article>
+      <article class="benefit"><h3>Сборка перед отправкой</h3><p>Каждый велосипед проходит контроль качества.</p></article>
+      <article class="benefit"><h3>Онлайн-консультация</h3><p>Поможем подобрать модель и размер под ваш запрос.</p></article>
+      <article class="benefit"><h3>Доставка по РФ</h3><p>Бережная упаковка и отслеживание заказа.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="section-head">
+        <h2>Контакты и карта</h2>
+      </div>
+      <ul class="contact-list">
+        <li><strong>Адрес:</strong> Москва, ул. Велосипедная, 10</li>
+        <li><strong>Телефон:</strong> +7 (900) 123-45-67</li>
+        <li><strong>Email:</strong> hello@veliktur.ru</li>
+        <li><strong>Режим:</strong> Ежедневно, 10:00-21:00</li>
+      </ul>
+    </div>
+    <div class="map-wrap">
+      <iframe
+        title="Карта магазина VelikTur"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=37.60%2C55.74%2C37.66%2C55.78&layer=mapnik"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted" id="contact-form">
+  <div class="container">
+    <div class="section-head">
+      <h2>Форма обратной связи</h2>
+      <p>Оставьте заявку, и мы поможем подобрать велосипед.</p>
+    </div>
+    <% if (sent) { %>
+    <p class="success-message">Спасибо! Заявка отправлена, мы свяжемся с вами в ближайшее время.</p>
+    <% } %>
+    <form class="contact-form" action="/contact" method="post">
+      <label>
+        Имя
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        Телефон
+        <input type="tel" name="phone" required />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required />
+      </label>
+      <label class="wide">
+        Сообщение
+        <textarea name="message" rows="4" placeholder="Расскажите, какой стиль катания вам интересен"></textarea>
+      </label>
+      <button class="btn" type="submit">Отправить</button>
+    </form>
+  </div>
+</section>
+
+<%- include('partials/footer', { products: products }) %>
+
