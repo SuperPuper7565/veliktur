@@ -1,26 +1,106 @@
 <%- include('partials/header', { title: title }) %>
 
 <section class="hero" id="hero">
-  <div class="container hero-grid">
-    <div>
-      <p class="badge">Новая коллекция 2026</p>
-      <h1>Велосипеды для города, трассы и горных приключений</h1>
-      <p class="hero-text">
-        Подберем идеальную модель под ваш стиль и рост. Доставка по России, гарантия 2 года и бесплатный сервис в первый сезон.
+  <div class="container hero__layout">
+    <div class="hero__content">
+      <p class="hero__location">
+        <span class="hero__location-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="img">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" fill="currentColor"/>
+          </svg>
+        </span>
+        ПЕРМЬ
       </p>
-      <div class="hero-actions">
-        <a class="btn" href="#catalog">Перейти в каталог</a>
-        <a class="btn btn-ghost" href="#catalog">Выбрать стиль</a>
-      </div>
-      <div class="hero-stats">
-        <div><strong>5000+</strong><span>Клиентов</span></div>
-        <div><strong>120+</strong><span>Моделей</span></div>
-        <div><strong>4.9</strong><span>Средний рейтинг</span></div>
+      <h1 class="hero__title">ВеликТур</h1>
+      <p class="hero__subtitle">
+        Велосипеды для города, троп и длинных маршрутов.<br />
+        Подберем модель под ваш стиль катания.
+      </p>
+      <a class="btn hero__cta" href="#catalog">Смотреть каталог</a>
+      <div class="hero__contacts">
+        <a class="hero__phone" href="tel:+79001234567">+7 (900) 123-45-67</a>
+        <p class="hero__phone-note">Круглосуточный прием заказов</p>
       </div>
     </div>
-    <div class="hero-visual">
-      <img src="/images/gorniy_velosiped_na_doroge.png" alt="Велосипед VelikTur" />
+    <div class="hero__media">
+      <div class="hero__media-bg">
+        <img src="/images/gorniy_velosiped_na_doroge.png" alt="Велосипед VelikTur" />
+      </div>
     </div>
+  </div>
+
+  <div class="container hero__info" aria-label="Информация о магазине">
+    <div class="info-bar__inner">
+    <article class="info-bar__item">
+      <a class="info-bar__icon info-bar__icon-link" href="#contact" aria-label="Перейти к карте">
+        <svg viewBox="0 0 24 24" role="img">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" fill="currentColor"/>
+        </svg>
+      </a>
+      <div>
+        <p class="info-bar__label">Наш магазин</p>
+        <p class="info-bar__value">ул. Ленина, 10</p>
+      </div>
+    </article>
+
+    <article class="info-bar__item">
+      <span class="info-bar__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img">
+          <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 7.6v4.7l3.1 1.9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div>
+        <p class="info-bar__label">Время работы</p>
+        <p class="info-bar__value">10:00 - 21:00</p>
+      </div>
+    </article>
+
+    <article class="info-bar__social">
+      <p class="info-bar__label">Наши соцсети:</p>
+      <div class="info-bar__social-list">
+        <a class="info-bar__social-btn" href="#" aria-label="ВКонтакте">
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path d="M4 7.2c0-.66.54-1.2 1.2-1.2h1.45c.5 0 .95.32 1.11.79l1.1 3.21 2.36-3.43a1.2 1.2 0 0 1 .99-.57h1.58c.97 0 1.53 1.1.95 1.88L14.7 10.6l3.2 3.58c.67.75.14 1.94-.86 1.94h-1.5c-.35 0-.68-.15-.91-.41L11.93 12.7l-1.12 1.34v.88c0 .66-.54 1.2-1.2 1.2H8.4c-.66 0-1.2-.54-1.2-1.2v-1.16L4.2 8.4A1.2 1.2 0 0 1 4 7.2z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a class="info-bar__social-btn" href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path d="M21.58 7.2a2.7 2.7 0 0 0-1.9-1.9C18.1 4.9 12 4.9 12 4.9s-6.1 0-7.68.4a2.7 2.7 0 0 0-1.9 1.9C2 8.78 2 12 2 12s0 3.22.42 4.8a2.7 2.7 0 0 0 1.9 1.9c1.58.4 7.68.4 7.68.4s6.1 0 7.68-.4a2.7 2.7 0 0 0 1.9-1.9c.42-1.58.42-4.8.42-4.8s0-3.22-.42-4.8zM10 15.3V8.7L15.7 12 10 15.3z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a class="info-bar__social-btn" href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path d="M20.5 4.2c.86-.33 1.68.45 1.4 1.34L18.7 18.3a1.2 1.2 0 0 1-1.8.69l-3.65-2.34-1.82 1.76c-.5.48-1.33.2-1.43-.49l-.56-3.6-2.8-1.66c-.77-.45-.67-1.58.15-1.9L20.5 4.2zM9.96 13.62l.3 1.97.86-.83 6.24-6.01-7.4 4.87z" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="Статистика магазина">
+  <div class="container stats__grid">
+    <article class="stats__item">
+      <p class="stats__value">2015</p>
+      <p class="stats__label">Работаем с основания</p>
+    </article>
+
+    <article class="stats__item">
+      <p class="stats__value">2340+</p>
+      <p class="stats__label">Довольных клиентов</p>
+    </article>
+
+    <article class="stats__item">
+      <p class="stats__value">450+</p>
+      <p class="stats__label">Живых отзывов</p>
+    </article>
+
+    <article class="stats__item stats__item--highlight">
+      <p class="stats__value">14 дней</p>
+      <p class="stats__label">Гарантия возврата</p>
+    </article>
   </div>
 </section>
 
@@ -112,29 +192,35 @@
       <%- include('partials/product-card', { product: product }) %>
       <% }) %>
     </div>
+
+    <div class="catalog-pagination" id="catalogPagination">
+      <button class="category-btn" type="button" id="prevPageBtn">Назад</button>
+      <p class="pagination-info" id="paginationInfo">Страница 1 из 1</p>
+      <button class="category-btn" type="button" id="nextPageBtn">Вперед</button>
+    </div>
   </div>
 </section>
 
 <section class="section" id="sizes">
   <div class="container">
     <div class="section-head">
-      <h2>Таблица размеров</h2>
-      <p>Быстрый ориентир для выбора ростовки рамы.</p>
+      <h2>Как выбрать размер?</h2>
+      <p>Таблица автоматически обновляется по выбранной категории.</p>
     </div>
     <div class="table-wrap">
-      <table>
-        <thead>
+      <table id="sizeGuideTable">
+        <thead id="sizeGuideHead">
           <tr>
-            <th>Рост</th>
-            <th>Размер рамы</th>
-            <th>Маркировка</th>
+            <th>Возраст</th>
+            <th>Рост (см)</th>
+            <th>Диаметр колес (″)</th>
           </tr>
         </thead>
-        <tbody>
-          <tr><td>150-165 см</td><td>15-16"</td><td>S</td></tr>
-          <tr><td>165-175 см</td><td>17-18"</td><td>M</td></tr>
-          <tr><td>175-185 см</td><td>19-20"</td><td>L</td></tr>
-          <tr><td>185-198 см</td><td>21-22"</td><td>XL</td></tr>
+        <tbody id="sizeGuideBody">
+          <tr><td>2-4 года</td><td>85-105</td><td>12" / 14"</td></tr>
+          <tr><td>4-6 лет</td><td>105-120</td><td>16"</td></tr>
+          <tr><td>6-9 лет</td><td>120-135</td><td>20"</td></tr>
+          <tr><td>9-12 лет</td><td>135-150</td><td>24"</td></tr>
         </tbody>
       </table>
     </div>
@@ -151,8 +237,11 @@
       <% products.filter((item) => item.isBestSeller).slice(0, 3).forEach((item) => { %>
       <article class="best-card">
         <img src="<%= item.image %>" alt="<%= item.name %>" />
-        <h3><%= item.name %></h3>
-        <p><%= item.price.toLocaleString('ru-RU') %> ₽</p>
+        <div class="best-card__body">
+          <h3><%= item.name %></h3>
+          <p class="best-card__price"><%= item.price.toLocaleString('ru-RU') %> ₽</p>
+          <button class="btn" type="button">Купить сейчас</button>
+        </div>
       </article>
       <% }) %>
     </div>
@@ -177,34 +266,90 @@
 <section class="section section-muted" id="benefits">
   <div class="container">
     <div class="section-head">
-      <h2>Преимущества</h2>
+      <h2>Что говорят покупатели</h2>
     </div>
-    <div class="benefits-grid">
-      <article class="benefit"><h3>Гарантия 2 года</h3><p>Официальное обслуживание и быстрые запчасти.</p></article>
-      <article class="benefit"><h3>Сборка перед отправкой</h3><p>Каждый велосипед проходит контроль качества.</p></article>
-      <article class="benefit"><h3>Онлайн-консультация</h3><p>Поможем подобрать модель и размер под ваш запрос.</p></article>
-      <article class="benefit"><h3>Доставка по РФ</h3><p>Бережная упаковка и отслеживание заказа.</p></article>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-card__top">
+          <p class="review-card__name">Анна Петрова</p>
+          <p class="review-card__rating">★★★★★</p>
+        </div>
+        <p class="review-card__text">
+          Очень помогли с подбором размера и быстро доставили. Велосипед приехал уже настроенным, кататься начала в тот же день.
+        </p>
+      </article>
+
+      <article class="review-card">
+        <div class="review-card__top">
+          <p class="review-card__name">Илья Смирнов</p>
+          <p class="review-card__rating">★★★★★</p>
+        </div>
+        <p class="review-card__text">
+          Заказывал горный велосипед для поездок по лесу. Консультант подробно объяснил разницу между моделями, покупкой доволен.
+        </p>
+      </article>
+
+      <article class="review-card">
+        <div class="review-card__top">
+          <p class="review-card__name">Екатерина Власова</p>
+          <p class="review-card__rating">★★★★☆</p>
+        </div>
+        <p class="review-card__text">
+          Удобный сайт, понятные фильтры и вежливая поддержка. Выбрала городской велосипед, вживую он даже лучше, чем на фото.
+        </p>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="section" id="contact">
   <div class="container contact-grid">
-    <div>
+    <div class="contact-info">
       <div class="section-head">
-        <h2>Контакты и карта</h2>
+        <h2>Быстрая доставка по Перми</h2>
       </div>
-      <ul class="contact-list">
-        <li><strong>Адрес:</strong> Москва, ул. Велосипедная, 10</li>
-        <li><strong>Телефон:</strong> +7 (900) 123-45-67</li>
-        <li><strong>Email:</strong> hello@veliktur.ru</li>
-        <li><strong>Режим:</strong> Ежедневно, 10:00-21:00</li>
-      </ul>
+      <div class="delivery-points">
+        <article class="delivery-item">
+          <span class="delivery-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M3 7.2A2.2 2.2 0 0 1 5.2 5h9.1a2.2 2.2 0 0 1 2.2 2.2v2.1h1.7c.7 0 1.35.34 1.76.92l1.7 2.42c.22.31.34.67.34 1.05v2.08a1.2 1.2 0 0 1-1.2 1.2h-.98a2.9 2.9 0 0 1-5.64 0H9.34a2.9 2.9 0 0 1-5.64 0H2.9a1.2 1.2 0 0 1-1.2-1.2V8.4c0-.66.54-1.2 1.2-1.2h.1zm4.02 10.06a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm10.36 0a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z" fill="currentColor"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="delivery-item__title">Доставка до двери</h3>
+            <p class="delivery-item__text">Привезем ваш велосипед в любую точку города в течение 24 часов.</p>
+          </div>
+        </article>
+
+        <article class="delivery-item">
+          <span class="delivery-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M7.2 6.2A2.2 2.2 0 0 1 9.4 4h5.2a2.2 2.2 0 0 1 2.2 2.2V8h1.1A1.1 1.1 0 0 1 19 9.1v8.7A2.2 2.2 0 0 1 16.8 20H7.2A2.2 2.2 0 0 1 5 17.8V9.1A1.1 1.1 0 0 1 6.1 8h1.1V6.2zm1.8 0V8h6V6.2a.4.4 0 0 0-.4-.4H9.4a.4.4 0 0 0-.4.4z" fill="currentColor"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="delivery-item__title">Самовывоз сегодня</h3>
+            <p class="delivery-item__text">Заберите заказ в магазине на ул. Ленина, 10 через 15 минут после оформления.</p>
+          </div>
+        </article>
+
+        <article class="delivery-item">
+          <span class="delivery-item__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M20.7 6.5l-3.2 3.2-1.9-1.9 3.2-3.2a3.2 3.2 0 0 0-4.2.3 3.2 3.2 0 0 0-.78 3.3L6.7 15.4a2.4 2.4 0 1 0 1.9 1.9l7.2-7.2a3.2 3.2 0 0 0 3.3-.78 3.2 3.2 0 0 0 .3-4.2zM5.5 18.5a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z" fill="currentColor"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="delivery-item__title">Приедет собранным</h3>
+            <p class="delivery-item__text">Все велосипеды проходят предпродажную подготовку и настройку механиком.</p>
+          </div>
+        </article>
+      </div>
     </div>
     <div class="map-wrap">
       <iframe
-        title="Карта магазина VelikTur"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=37.60%2C55.74%2C37.66%2C55.78&layer=mapnik"
+        title="Карта VelikTur - Пермь, ул. Ленина, 10"
+        src="https://yandex.ru/map-widget/v1/?ll=56.257102,58.016248&z=16&pt=56.257102,58.016248,pm2rdm"
         loading="lazy"
       ></iframe>
     </div>

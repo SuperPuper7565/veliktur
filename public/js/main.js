@@ -2,7 +2,9 @@
   const products = Array.isArray(window.__PRODUCTS__) ? window.__PRODUCTS__ : [];
   const grid = document.getElementById('catalogGrid');
   const searchInput = document.getElementById('searchInput');
-  const categoryButtons = Array.from(document.querySelectorAll('.category-btn'));
+  const categoryButtons = Array.from(
+    document.querySelectorAll('#categoryButtons .category-btn')
+  );
   const priceRange = document.getElementById('priceRange');
   const priceValue = document.getElementById('priceValue');
   const brandFilter = document.getElementById('brandFilter');
@@ -18,9 +20,17 @@
   const ageButtonsWrap = document.getElementById('ageButtons');
   const advancedSeparator = document.getElementById('advancedSeparator');
   const resultCount = document.getElementById('resultCount');
+  const prevPageBtn = document.getElementById('prevPageBtn');
+  const nextPageBtn = document.getElementById('nextPageBtn');
+  const paginationInfo = document.getElementById('paginationInfo');
+  const sizeGuideHead = document.getElementById('sizeGuideHead');
+  const sizeGuideBody = document.getElementById('sizeGuideBody');
   let selectedCategory = 'all';
   let selectedGender = 'all';
   let selectedAge = 'all';
+  let currentPage = 1;
+  let lastFilteredTotal = 0;
+  const itemsPerPage = 3;
 
   if (
     !grid ||
@@ -38,10 +48,71 @@
     !genderButtonsWrap ||
     !ageButtonsWrap ||
     !advancedSeparator ||
-    !resultCount
+    !resultCount ||
+    !prevPageBtn ||
+    !nextPageBtn ||
+    !paginationInfo ||
+    !sizeGuideHead ||
+    !sizeGuideBody
   ) {
     return;
   }
+
+  const sizeData = {
+    all: [
+      { height: '145-160', frame: 'S', wheel: '26" / 27.5"' },
+      { height: '160-175', frame: 'M', wheel: '27.5" / 28"' },
+      { height: '175-185', frame: 'L', wheel: '28" / 29"' },
+      { height: '185-195', frame: 'XL', wheel: '29"' }
+    ],
+    kids: [
+      { age: '2-4 года', height: '85-105', wheel: '12" / 14"' },
+      { age: '4-6 лет', height: '105-120', wheel: '16"' },
+      { age: '6-9 лет', height: '120-135', wheel: '20"' },
+      { age: '9-12 лет', height: '135-150', wheel: '24"' }
+    ],
+    mountain: [
+      { height: '150-165', frame: 'S', wheel: '26"' },
+      { height: '165-175', frame: 'M', wheel: '27.5"' },
+      { height: '175-185', frame: 'L', wheel: '29"' }
+    ],
+    city: [
+      { height: '155-170', frame: 'M', wheel: '28"' },
+      { height: '170-185', frame: 'L', wheel: '28"' }
+    ],
+    hybrid: [
+      { height: '160-175', frame: 'M', wheel: '28"' },
+      { height: '175-190', frame: 'L', wheel: '28"' }
+    ]
+  };
+
+  const renderSizeGuide = (category) => {
+    const normalizedCategory = sizeData[category] ? category : 'all';
+    const rows = sizeData[normalizedCategory] || sizeData.all;
+    const isKids = normalizedCategory === 'kids';
+
+    const headCells = isKids
+      ? ['Возраст', 'Рост (см)', 'Диаметр колес (″)']
+      : ['Рост (см)', 'Рама', 'Диаметр колес (″)'];
+
+    sizeGuideHead.innerHTML = `
+      <tr>
+        <th>${headCells[0]}</th>
+        <th>${headCells[1]}</th>
+        <th>${headCells[2]}</th>
+      </tr>
+    `;
+
+    sizeGuideBody.innerHTML = rows
+      .map((row) => {
+        if (isKids) {
+          return `<tr><td>${row.age}</td><td>${row.height}</td><td>${row.wheel}</td></tr>`;
+        }
+
+        return `<tr><td>${row.height}</td><td>${row.frame}</td><td>${row.wheel}</td></tr>`;
+      })
+      .join('');
+  };
 
   const categoryMeta = {
     kids: {
@@ -100,7 +171,7 @@
       <img src="${product.image}" alt="${product.name}" loading="lazy" />
       <div class="product-body">
         <h3>${product.name}</h3>
-        <p class="product-meta">${product.frame} · ${product.wheel} · ${product.speed} скоростей</p>
+        <p class="product-meta">${product.frame} · ${product.wheel} · ${product.speed} скоростей · ${product.brakeType}</p>
         <div class="product-row">
           <span class="price">${formatPrice(product.price)} ₽</span>
         </div>
@@ -122,10 +193,33 @@
     selectedCategory = category;
     selectedGender = 'all';
     selectedAge = 'all';
+    currentPage = 1;
     categoryButtons.forEach((button) => {
       button.classList.toggle('is-active', button.dataset.category === category);
     });
     renderAdvancedFilters(category);
+    renderSizeGuide(category);
+  };
+
+  const renderPagination = (totalItems) => {
+    const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+    currentPage = Math.min(currentPage, totalPages);
+    paginationInfo.textContent = `Страница ${currentPage} из ${totalPages}`;
+    prevPageBtn.disabled = currentPage <= 1;
+    nextPageBtn.disabled = currentPage >= totalPages;
+  };
+
+  const renderCatalog = (filtered) => {
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p>По вашему запросу ничего не найдено.</p>';
+      renderPagination(0);
+      return;
+    }
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const paginated = filtered.slice(start, start + itemsPerPage);
+    grid.innerHTML = paginated.map(cardTemplate).join('');
+    renderPagination(filtered.length);
   };
 
   const createFilterButtons = (target, options, selectedValue, onPick) => {
@@ -163,6 +257,7 @@
 
     createFilterButtons(genderButtonsWrap, meta.genderOptions, selectedGender, (value) => {
       selectedGender = value;
+      currentPage = 1;
       renderAdvancedFilters(selectedCategory);
       applyFilters();
     });
@@ -172,6 +267,7 @@
       advancedSeparator.style.display = 'inline';
       createFilterButtons(ageButtonsWrap, meta.ageOptions, selectedAge, (value) => {
         selectedAge = value;
+        currentPage = 1;
         renderAdvancedFilters(selectedCategory);
         applyFilters();
       });
@@ -219,11 +315,9 @@
 
     filtered.sort((a, b) => Number(a.price) - Number(b.price));
 
-    if (filtered.length === 0) {
-      grid.innerHTML = '<p>По вашему запросу ничего не найдено.</p>';
-    } else {
-      grid.innerHTML = filtered.map(cardTemplate).join('');
-    }
+    lastFilteredTotal = filtered.length;
+
+    renderCatalog(filtered);
 
     resultCount.textContent = `Найдено: ${filtered.length}`;
     priceValue.textContent = `${formatPrice(maxPrice)} ₽`;
@@ -236,14 +330,49 @@
     });
   });
 
-  searchInput.addEventListener('input', applyFilters);
-  priceRange.addEventListener('input', applyFilters);
-  brandFilter.addEventListener('change', applyFilters);
-  wheelFilter.addEventListener('change', applyFilters);
-  speedsFilter.addEventListener('change', applyFilters);
-  frameFilter.addEventListener('change', applyFilters);
-  brakeFilter.addEventListener('change', applyFilters);
+  searchInput.addEventListener('input', () => {
+    currentPage = 1;
+    applyFilters();
+  });
+  priceRange.addEventListener('input', () => {
+    currentPage = 1;
+    applyFilters();
+  });
+  brandFilter.addEventListener('change', () => {
+    currentPage = 1;
+    applyFilters();
+  });
+  wheelFilter.addEventListener('change', () => {
+    currentPage = 1;
+    applyFilters();
+  });
+  speedsFilter.addEventListener('change', () => {
+    currentPage = 1;
+    applyFilters();
+  });
+  frameFilter.addEventListener('change', () => {
+    currentPage = 1;
+    applyFilters();
+  });
+  brakeFilter.addEventListener('change', () => {
+    currentPage = 1;
+    applyFilters();
+  });
+  prevPageBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage -= 1;
+      applyFilters();
+    }
+  });
+  nextPageBtn.addEventListener('click', () => {
+    const totalPages = Math.max(1, Math.ceil(lastFilteredTotal / itemsPerPage));
+    if (currentPage < totalPages) {
+      currentPage += 1;
+      applyFilters();
+    }
+  });
   renderAdvancedFilters(selectedCategory);
+  renderSizeGuide(selectedCategory);
   applyFilters();
 })();
 

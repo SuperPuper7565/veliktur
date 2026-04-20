@@ -20,6 +20,21 @@ const brakeTypes = ['Дисковые гидравлические', 'Диско
 
 const products = [
   {
+    name: 'Kids Rocket 16',
+    categorySlug: 'kids',
+    brand: 'VelikTur',
+    price: 25900,
+    wheelDiameter: 16,
+    speedsCount: 1,
+    frameMaterial: 'Сталь',
+    brakeType: 'Ободные',
+    targetGender: 'boys',
+    ageGroup: '3-5',
+    rating: 4.5,
+    image: '/images/bike-city.svg',
+    isBestSeller: 0
+  },
+  {
     name: 'Kids Rocket 20',
     categorySlug: 'kids',
     brand: 'VelikTur',
@@ -50,6 +65,51 @@ const products = [
     isBestSeller: 0
   },
   {
+    name: 'Kids Star 20',
+    categorySlug: 'kids',
+    brand: 'Giant',
+    price: 33400,
+    wheelDiameter: 20,
+    speedsCount: 6,
+    frameMaterial: 'Алюминий',
+    brakeType: 'Ободные',
+    targetGender: 'girls',
+    ageGroup: '6-8',
+    rating: 4.8,
+    image: '/images/bike-city.svg',
+    isBestSeller: 1
+  },
+  {
+    name: 'Junior Trail 24',
+    categorySlug: 'kids',
+    brand: 'Trek',
+    price: 41800,
+    wheelDiameter: 24,
+    speedsCount: 7,
+    frameMaterial: 'Алюминий',
+    brakeType: 'Дисковые механические',
+    targetGender: 'boys',
+    ageGroup: '9-12',
+    rating: 4.8,
+    image: '/images/bike-mountain.svg',
+    isBestSeller: 1
+  },
+  {
+    name: 'Junior Breeze 24',
+    categorySlug: 'kids',
+    brand: 'Merida',
+    price: 40600,
+    wheelDiameter: 24,
+    speedsCount: 7,
+    frameMaterial: 'Алюминий',
+    brakeType: 'Дисковые механические',
+    targetGender: 'girls',
+    ageGroup: '9-12',
+    rating: 4.7,
+    image: '/images/bike-hybrid.svg',
+    isBestSeller: 0
+  },
+  {
     name: 'City Glide 3',
     categorySlug: 'city',
     brand: 'Giant',
@@ -65,6 +125,36 @@ const products = [
     isBestSeller: 0
   },
   {
+    name: 'City Wave 7',
+    categorySlug: 'city',
+    brand: 'VelikTur',
+    price: 61200,
+    wheelDiameter: 27.5,
+    speedsCount: 7,
+    frameMaterial: 'Алюминий',
+    brakeType: 'Ободные',
+    targetGender: 'women',
+    ageGroup: null,
+    rating: 4.6,
+    image: '/images/bike-city.svg',
+    isBestSeller: 0
+  },
+  {
+    name: 'Urban Lady 28',
+    categorySlug: 'city',
+    brand: 'Merida',
+    price: 73400,
+    wheelDiameter: 28,
+    speedsCount: 21,
+    frameMaterial: 'Карбон',
+    brakeType: 'Дисковые гидравлические',
+    targetGender: 'women',
+    ageGroup: null,
+    rating: 4.9,
+    image: '/images/bike-city.svg',
+    isBestSeller: 1
+  },
+  {
     name: 'Storm Urban X1',
     categorySlug: 'city',
     brand: 'Trek',
@@ -76,6 +166,36 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.8,
+    image: '/images/bike-city.svg',
+    isBestSeller: 1
+  },
+  {
+    name: 'Metro Rider 27',
+    categorySlug: 'city',
+    brand: 'Giant',
+    price: 67100,
+    wheelDiameter: 27.5,
+    speedsCount: 18,
+    frameMaterial: 'Алюминий',
+    brakeType: 'Дисковые механические',
+    targetGender: 'men',
+    ageGroup: null,
+    rating: 4.7,
+    image: '/images/bike-city.svg',
+    isBestSeller: 0
+  },
+  {
+    name: 'City Sprint 28',
+    categorySlug: 'city',
+    brand: 'Trek',
+    price: 75800,
+    wheelDiameter: 28,
+    speedsCount: 24,
+    frameMaterial: 'Карбон',
+    brakeType: 'Дисковые гидравлические',
+    targetGender: 'men',
+    ageGroup: null,
+    rating: 4.9,
     image: '/images/bike-city.svg',
     isBestSeller: 1
   },
@@ -95,6 +215,21 @@ const products = [
     isBestSeller: 1
   },
   {
+    name: 'Rock Master 29',
+    categorySlug: 'mountain',
+    brand: 'Giant',
+    price: 86500,
+    wheelDiameter: 29,
+    speedsCount: 18,
+    frameMaterial: 'Алюминий',
+    brakeType: 'Дисковые механические',
+    targetGender: 'men',
+    ageGroup: null,
+    rating: 4.8,
+    image: '/images/bike-mountain.svg',
+    isBestSeller: 0
+  },
+  {
     name: 'Peak Enduro ZX',
     categorySlug: 'mountain',
     brand: 'Trek',
@@ -108,6 +243,21 @@ const products = [
     rating: 5.0,
     image: '/images/bike-mountain.svg',
     isBestSeller: 1
+  },
+  {
+    name: 'Alpine Lady 27',
+    categorySlug: 'mountain',
+    brand: 'Merida',
+    price: 84200,
+    wheelDiameter: 27.5,
+    speedsCount: 21,
+    frameMaterial: 'Алюминий',
+    brakeType: 'Дисковые гидравлические',
+    targetGender: 'women',
+    ageGroup: null,
+    rating: 4.8,
+    image: '/images/bike-mountain.svg',
+    isBestSeller: 0
   },
   {
     name: 'Hybrid Flow M',
@@ -125,6 +275,21 @@ const products = [
     isBestSeller: 0
   },
   {
+    name: 'Hybrid Cross 28',
+    categorySlug: 'hybrid',
+    brand: 'Trek',
+    price: 72400,
+    wheelDiameter: 28,
+    speedsCount: 21,
+    frameMaterial: 'Карбон',
+    brakeType: 'Дисковые гидравлические',
+    targetGender: 'men',
+    ageGroup: null,
+    rating: 4.8,
+    image: '/images/bike-hybrid.svg',
+    isBestSeller: 1
+  },
+  {
     name: 'Sprint Hybrid S',
     categorySlug: 'hybrid',
     brand: 'Giant',
@@ -138,6 +303,21 @@ const products = [
     rating: 4.7,
     image: '/images/bike-hybrid.svg',
     isBestSeller: 0
+  },
+  {
+    name: 'Hybrid City Lady',
+    categorySlug: 'hybrid',
+    brand: 'VelikTur',
+    price: 73900,
+    wheelDiameter: 28,
+    speedsCount: 24,
+    frameMaterial: 'Карбон',
+    brakeType: 'Дисковые гидравлические',
+    targetGender: 'women',
+    ageGroup: null,
+    rating: 4.9,
+    image: '/images/bike-hybrid.svg',
+    isBestSeller: 1
   }
 ];
 

@@ -2,7 +2,7 @@
   <img src="<%= product.image %>" alt="<%= product.name %>" loading="lazy" />
   <div class="product-body">
     <h3><%= product.name %></h3>
-    <p class="product-meta"><%= product.frame %> · <%= product.wheel %> · <%= product.speed %> скоростей</p>
+    <p class="product-meta"><%= product.frame %> · <%= product.wheel %> · <%= product.speed %> скоростей · <%= product.brakeType %></p>
     <div class="product-row">
       <span class="price"><%= product.price.toLocaleString('ru-RU') %> ₽</span>
     </div>
