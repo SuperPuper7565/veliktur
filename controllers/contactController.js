@@ -1,15 +1,22 @@
 exports.submitContactForm = (req, res) => {
-  const { name, phone, email, message } = req.body;
+  const { name, phone, email, address, orderItems } = req.body;
 
-  // Placeholder обработка формы: в реальном проекте добавить БД или email-сервис.
-  console.log('[CONTACT_FORM]', {
+  let parsedItems = [];
+
+  try {
+    parsedItems = JSON.parse(orderItems || '[]');
+  } catch (error) {
+    parsedItems = [];
+  }
+
+  console.log('[ORDER_FORM]', {
     name,
     phone,
     email,
-    message,
+    address,
+    items: parsedItems,
     createdAt: new Date().toISOString()
   });
 
   res.redirect('/?sent=1#contact-form');
 };
-

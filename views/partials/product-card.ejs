@@ -1,12 +1,27 @@
-<article class="product-card" data-id="<%= product.id %>">
+<article
+  class="product-card"
+  data-id="<%= product.id %>"
+  data-product-card
+  tabindex="0"
+  role="button"
+  aria-label="Открыть карточку товара <%= product.name %>"
+>
   <img src="<%= product.image %>" alt="<%= product.name %>" loading="lazy" />
   <div class="product-body">
+    <p class="product-category"><%= product.brand %> • <%= product.categoryName %></p>
     <h3><%= product.name %></h3>
-    <p class="product-meta"><%= product.frame %> · <%= product.wheel %> · <%= product.speed %> скоростей · <%= product.brakeType %></p>
+    <p class="product-meta">
+      <%= product.frame %> • <%= product.wheel %> • <%= product.speed %> скоростей •
+      <%= product.brakeType %>
+    </p>
     <div class="product-row">
       <span class="price"><%= product.price.toLocaleString('ru-RU') %> ₽</span>
+      <span class="product-rating"><%= product.rating.toFixed(1) %> / 5</span>
     </div>
-    <button class="btn btn-dark" type="button">Выбрать</button>
+    <div class="product-actions" data-product-actions data-product-id="<%= product.id %>" data-variant="card">
+      <button class="btn btn-dark" type="button" data-action="add-to-cart" data-product-id="<%= product.id %>">
+        В корзину
+      </button>
+    </div>
   </div>
 </article>
-

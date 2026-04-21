@@ -23,8 +23,43 @@
           <a href="#benefits">Отзывы</a>
           <a href="#contact-form">Оформить заказ</a>
         </nav>
-        <a class="btn btn-ghost nav-cart" href="#contact-form">В корзину</a>
+
+        <div class="cart-menu">
+          <button
+            class="btn btn-ghost nav-cart"
+            type="button"
+            id="cartToggle"
+            aria-expanded="false"
+            aria-controls="cartDropdown"
+            aria-label="Открыть корзину"
+          >
+            <span class="nav-cart__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <path
+                  d="M3 4.5h2.1a1 1 0 0 1 .97.76l.37 1.57h11.93a1 1 0 0 1 .97 1.24l-1.52 6.05a1 1 0 0 1-.97.76H9.06a1 1 0 0 1-.97-.76L5.07 5.5H3a1 1 0 1 1 0-2zm6.22 16.25a1.65 1.65 0 1 1 0-3.3 1.65 1.65 0 0 1 0 3.3zm7.1 0a1.65 1.65 0 1 1 0-3.3 1.65 1.65 0 0 1 0 3.3z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="nav-cart__count" id="cartCount" aria-live="polite">0</span>
+          </button>
+
+          <div class="cart-popover" id="cartDropdown" hidden>
+            <div class="cart-popover__head">
+              <p class="cart-popover__title">Корзина</p>
+              <p class="cart-popover__subtitle" id="cartSummaryText">Товаров: 0</p>
+            </div>
+            <div class="cart-popover__body" id="cartPreview"></div>
+            <a
+              class="btn cart-popover__checkout"
+              id="cartCheckoutLink"
+              href="#contact-form"
+              data-action="go-to-checkout"
+            >
+              Перейти к оформлению заказа
+            </a>
+          </div>
+        </div>
       </div>
     </header>
     <main>
-
