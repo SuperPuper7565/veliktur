@@ -256,7 +256,7 @@ const products = [
     targetGender: 'women',
     ageGroup: null,
     rating: 4.8,
-    image: '/images/bike-mountain.svg',
+    image: '/images/dinar_bike.jpg',
     isBestSeller: 0
   },
   {
@@ -431,6 +431,4 @@ if (require.main === module) {
     process.exit(1);
   });
 }
-
-
 

@@ -236,27 +236,7 @@
     </div>
     <div class="best-grid">
       <% products.filter((item) => item.isBestSeller).slice(0, 3).forEach((item) => { %>
-      <article
-        class="best-card"
-        data-id="<%= item.id %>"
-        data-product-card
-        tabindex="0"
-        role="button"
-        aria-label="Открыть карточку товара <%= item.name %>"
-      >
-        <img src="<%= item.image %>" alt="<%= item.name %>" />
-        <div class="best-card__body">
-          <p class="best-card__brand"><%= item.brand %> • <%= item.categoryName %></p>
-          <h3><%= item.name %></h3>
-          <p class="best-card__meta"><%= item.frame %> • <%= item.wheel %> • <%= item.brakeType %></p>
-          <p class="best-card__price"><%= item.price.toLocaleString('ru-RU') %> ₽</p>
-          <div class="product-actions" data-product-actions data-product-id="<%= item.id %>" data-variant="best">
-            <button class="btn" type="button" data-action="add-to-cart" data-product-id="<%= item.id %>">
-              В корзину
-            </button>
-          </div>
-        </div>
-      </article>
+      <%- include('partials/product-card', { product: item }) %>
       <% }) %>
     </div>
   </div>
