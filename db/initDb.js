@@ -31,7 +31,7 @@ const products = [
     targetGender: 'boys',
     ageGroup: '3-5',
     rating: 4.5,
-    image: '/images/bike-city.svg',
+    image: '/images/Avatar Junior_blue.jpg',
     isBestSeller: 0
   },
   {
@@ -46,7 +46,7 @@ const products = [
     targetGender: 'boys',
     ageGroup: '6-8',
     rating: 4.7,
-    image: '/images/bike-city.svg',
+    image: '/images/Compact 1.0_green.jpg',
     isBestSeller: 1
   },
   {
@@ -61,7 +61,7 @@ const products = [
     targetGender: 'girls',
     ageGroup: '3-5',
     rating: 4.6,
-    image: '/images/bike-city.svg',
+    image: '/images/Avenue white_pink.jpg',
     isBestSeller: 0
   },
   {
@@ -76,7 +76,7 @@ const products = [
     targetGender: 'girls',
     ageGroup: '6-8',
     rating: 4.8,
-    image: '/images/bike-city.svg',
+    image: '/images/Avenue white_sea blue.jpg',
     isBestSeller: 1
   },
   {
@@ -91,7 +91,7 @@ const products = [
     targetGender: 'boys',
     ageGroup: '9-12',
     rating: 4.8,
-    image: '/images/bike-mountain.svg',
+    image: '/images/Avatar 1.1 Disc_black.jpg',
     isBestSeller: 1
   },
   {
@@ -106,7 +106,7 @@ const products = [
     targetGender: 'girls',
     ageGroup: '9-12',
     rating: 4.7,
-    image: '/images/bike-hybrid.svg',
+    image: '/images/Easy_silver.png',
     isBestSeller: 0
   },
   {
@@ -121,7 +121,7 @@ const products = [
     targetGender: 'women',
     ageGroup: null,
     rating: 4.5,
-    image: '/images/bike-city.svg',
+    image: '/images/Compact 2.0_red.jpg',
     isBestSeller: 0
   },
   {
@@ -136,7 +136,7 @@ const products = [
     targetGender: 'women',
     ageGroup: null,
     rating: 4.6,
-    image: '/images/bike-city.svg',
+    image: '/images/Amsterdam 2.0 red.jpg',
     isBestSeller: 0
   },
   {
@@ -151,7 +151,7 @@ const products = [
     targetGender: 'women',
     ageGroup: null,
     rating: 4.9,
-    image: '/images/bike-city.svg',
+    image: '/images/28-130_grey.jpg',
     isBestSeller: 1
   },
   {
@@ -166,7 +166,7 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.8,
-    image: '/images/bike-city.svg',
+    image: '/images/Broadway_black_red.jpg',
     isBestSeller: 1
   },
   {
@@ -181,7 +181,7 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.7,
-    image: '/images/bike-city.svg',
+    image: '/images/Broadway_black_yellow.jpg',
     isBestSeller: 0
   },
   {
@@ -196,7 +196,7 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.9,
-    image: '/images/bike-city.svg',
+    image: '/images/28-245_blue.jpg',
     isBestSeller: 1
   },
   {
@@ -211,7 +211,7 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.9,
-    image: '/images/bike-mountain.svg',
+    image: '/images/Rocky 2.0 Disc 29.png',
     isBestSeller: 1
   },
   {
@@ -226,7 +226,7 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.8,
-    image: '/images/bike-mountain.svg',
+    image: '/images/Avatar 1.1 Disc_camo.jpg',
     isBestSeller: 0
   },
   {
@@ -241,7 +241,7 @@ const products = [
     targetGender: 'women',
     ageGroup: null,
     rating: 5.0,
-    image: '/images/bike-mountain.svg',
+    image: '/images/Avatar 1.1 Disc_red.jpg',
     isBestSeller: 1
   },
   {
@@ -271,7 +271,7 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.6,
-    image: '/images/bike-hybrid.svg',
+    image: '/images/Cargo 1.1_black_3_4.jpg',
     isBestSeller: 0
   },
   {
@@ -286,7 +286,7 @@ const products = [
     targetGender: 'men',
     ageGroup: null,
     rating: 4.8,
-    image: '/images/bike-hybrid.svg',
+    image: '/images/Cargo 1.1_blue_3_4.jpg',
     isBestSeller: 1
   },
   {
@@ -301,7 +301,7 @@ const products = [
     targetGender: 'women',
     ageGroup: null,
     rating: 4.7,
-    image: '/images/bike-hybrid.svg',
+    image: '/images/Cargo 1.1_red_3_4.jpg',
     isBestSeller: 0
   },
   {
@@ -316,7 +316,7 @@ const products = [
     targetGender: 'women',
     ageGroup: null,
     rating: 4.9,
-    image: '/images/bike-hybrid.svg',
+    image: '/images/28-130_blue.jpg',
     isBestSeller: 1
   }
 ];
