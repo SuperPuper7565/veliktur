@@ -17,7 +17,7 @@ exports.renderHome = async (req, res, next) => {
     const categories = [...new Set(products.map((item) => item.category))];
 
     res.render('index', {
-      title: 'VelikTur - РІРµР»РѕСЃРёРїРµРґС‹ РґР»СЏ РіРѕСЂРѕРґР° Рё РїСЂРёРєР»СЋС‡РµРЅРёР№',
+      title: 'VelikTur - велосипеды для города и приключений',
       products,
       categories,
       sent: req.query.sent === '1'

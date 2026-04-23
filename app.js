@@ -39,7 +39,7 @@ app.use((error, req, res, next) => {
 });
 
 app.use((req, res) => {
-  res.status(404).render('404', { title: 'РЎС‚СЂР°РЅРёС†Р° РЅРµ РЅР°Р№РґРµРЅР°' });
+  res.status(404).render('404', { title: 'Страница не найдена' });
 });
 
 if (require.main === module) {
