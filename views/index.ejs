@@ -25,7 +25,7 @@
 
     <div class="hero__media">
       <div class="hero__media-bg">
-        <img src="/images/gorniy_velosiped_na_doroge.png" alt="Велосипед VelikTur" />
+        <img src="<%= basePath %>/images/gorniy_velosiped_na_doroge.png" alt="Велосипед VelikTur" />
       </div>
     </div>
   </div>
@@ -256,19 +256,19 @@
       <div class="gallery-carousel__viewport">
         <div class="gallery-carousel__track" id="galleryTrack">
           <figure class="gallery-carousel__slide">
-            <img src="/images/perm-ride-01.png" alt="Катание по Перми - фото 1" />
+            <img src="<%= basePath %>/images/perm-ride-01.png" alt="Катание по Перми - фото 1" />
           </figure>
           <figure class="gallery-carousel__slide">
-            <img src="/images/perm-ride-02.png" alt="Катание по Перми - фото 2" />
+            <img src="<%= basePath %>/images/perm-ride-02.png" alt="Катание по Перми - фото 2" />
           </figure>
           <figure class="gallery-carousel__slide">
-            <img src="/images/perm-ride-03.png" alt="Катание по Перми - фото 3" />
+            <img src="<%= basePath %>/images/perm-ride-03.png" alt="Катание по Перми - фото 3" />
           </figure>
           <figure class="gallery-carousel__slide">
-            <img src="/images/perm-ride-04.png" alt="Катание по Перми - фото 4" />
+            <img src="<%= basePath %>/images/perm-ride-04.png" alt="Катание по Перми - фото 4" />
           </figure>
           <figure class="gallery-carousel__slide">
-            <img src="/images/perm-ride-05.png" alt="Катание по Перми - фото 5" />
+            <img src="<%= basePath %>/images/perm-ride-05.png" alt="Катание по Перми - фото 5" />
           </figure>
         </div>
       </div>
@@ -406,7 +406,7 @@
         </p>
         <% } %>
 
-        <form class="contact-form order-form" action="/contact" method="post" id="orderForm">
+        <form class="contact-form order-form" action="<%= basePath %>/contact" method="post" id="orderForm">
           <input type="hidden" name="orderItems" id="orderItemsInput" />
 
           <label>

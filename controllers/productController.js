@@ -1,5 +1,13 @@
 const productService = require('../services/productService');
 
+const prependBasePath = (basePath, assetPath) => {
+  if (!assetPath || !assetPath.startsWith('/')) {
+    return assetPath;
+  }
+
+  return `${basePath}${assetPath}`;
+};
+
 exports.getProducts = async (req, res, next) => {
   try {
     const {
@@ -13,10 +21,9 @@ exports.getProducts = async (req, res, next) => {
       targetGender,
       ageGroup,
       maxPrice
-    } =
-      req.query;
+    } = req.query;
 
-    const products = await productService.getFilteredProducts({
+    const products = (await productService.getFilteredProducts({
       category,
       search,
       brand,
@@ -27,7 +34,10 @@ exports.getProducts = async (req, res, next) => {
       targetGender,
       ageGroup,
       maxPrice
-    });
+    })).map((product) => ({
+      ...product,
+      image: prependBasePath(res.locals.basePath, product.image)
+    }));
 
     res.json({
       total: products.length,
@@ -37,4 +47,3 @@ exports.getProducts = async (req, res, next) => {
     next(error);
   }
 };
-
